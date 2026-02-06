@@ -7,39 +7,39 @@ namespace Blackstone.Controller;
 [Route("api/[controller]")]
 public class BlogCategoryController : ControllerBase
 {
-    private readonly BlogCategoryRepository blogRepository;
-    public BlogCategoryController(BlogCategoryRepository blogRepository)
+    private readonly BlogCategoryRepository blogCategoryRepository;
+    public BlogCategoryController(BlogCategoryRepository blogCategoryRepository)
     {
-        this.blogRepository = blogRepository;
+        this.blogCategoryRepository = blogCategoryRepository;
     }
     [HttpPost]
     public async Task<IActionResult> AddAsync(BlogCategory entity)
     {
-        await blogRepository.AddAsync(entity);
-        return Ok();
+        await blogCategoryRepository.AddAsync(entity);
+        return Ok(entity);
     }
     [HttpPut]
     public async Task<IActionResult> UpdateAsync(BlogCategory entity)
     {
-        await blogRepository.UpdateAsync(entity);
-        return Ok();
+        await blogCategoryRepository.UpdateAsync(entity);
+        return Ok(entity);
     } 
     [HttpDelete("{id}")]
     public async Task<IActionResult> DeleteAsync(Guid id)
     {
-        var result = await blogRepository.DeleteAsync(id);
-        return Ok();
+        var result = await blogCategoryRepository.DeleteAsync(id);
+        return Ok(result);
     }
     [HttpGet]
     public async Task<IActionResult> GetAllAsync()
     {
-        var blog = await blogRepository.GetAllAsync();
-        return Ok();
+        var blogCategory = await blogCategoryRepository.GetAllAsync();
+        return Ok(blogCategory);
     }
     [HttpGet("{id}")]
     public async Task<IActionResult> GetByIdAsync(Guid id)
     {
-        var entity = await blogRepository.GetByIdAsync(id);
+        var entity = await blogCategoryRepository.GetByIdAsync(id);
         return Ok(entity);
     }
 }

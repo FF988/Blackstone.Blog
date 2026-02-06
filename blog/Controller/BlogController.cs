@@ -34,7 +34,7 @@ public class BlogController : ControllerBase
     public async Task<IActionResult> GetAllAsync()
     {
         var blog = await blogRepository.GetAllAsync();
-        return Ok();
+        return Ok(blog);
     }
     [HttpGet("{id}")]
     public async Task<IActionResult> GetByIdAsync(Guid id)

@@ -12,6 +12,7 @@ public class BlogCategoryRepository
     }
     public async Task<BlogCategory> AddAsync(BlogCategory entity)
     {
+        entity.UpdatedAt=DateTime.Now;
         context.BlogCategory.Add(entity);
         await context.SaveChangesAsync();
         return entity;
@@ -39,4 +40,4 @@ public class BlogCategoryRepository
     {
         return await context.BlogCategory.Where(x=>x.Id==id).SingleOrDefaultAsync();
     }
-}   
+} 

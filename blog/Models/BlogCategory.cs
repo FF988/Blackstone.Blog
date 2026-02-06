@@ -1,7 +1,7 @@
 namespace Blackstone.Models;
 public class BlogCategory
 {
-    public Guid Id { get; set; }
+    public Guid Id { get; init; } = Guid.NewGuid();
     
     // 使用 string.Empty 避免 Nullable 警告
     public string Name { get; set; } = string.Empty;

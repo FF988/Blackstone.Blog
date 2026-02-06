@@ -1,7 +1,7 @@
 # 建立一個可以連線到資料庫的專案，能夠操作資料的新增、修改、刪除與查詢功能
 ---
 ## 目標
-- 新增一個組 dotnet 專案
+- 新增一個 dotnet 專案
 - 建立 Blog 類別及以上層 BlogCategory 類別
 - 建立 Blog 及 BlogCategory 的Repository
 - 建立一個 Blog 及 BlogCategory 的 Controller
@@ -234,7 +234,7 @@ public class BlogCategoryRepository
 - [httpPost] 是用來標註這個方法為 POST 請求。
 - await blogRepository.AddAsync(blog); 是用來執行 BlogRepository 中的 AddAsync 方法。
 - return HttpResponseMessage.Created(blog); 是用來回傳一個 CREATED 響應。
-- [httpDelete("{id}")] 是用來標註這個方法為 DELETE 請求。路徑會是 http://localshot:5000/api/Blog/{id}。
+- [httpDelete("{id}")] 是用來標註這個方法為 DELETE 請求。路徑會是 http://localshot:5000/api/Blog/{id}。 ex: http://localshot:5000/api/Blog/xyz-1234567890
 
 ```csharp
 using Blackstone.Models;
